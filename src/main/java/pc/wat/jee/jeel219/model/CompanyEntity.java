@@ -5,7 +5,14 @@
  */
 package pc.wat.jee.jeel219.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class CompanyEntity {
+    private CompanyId id;
+    private String address;
+    private double netWorth;
     
 }

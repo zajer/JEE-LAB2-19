@@ -6,15 +6,11 @@
 package pc.wat.jee.jeel219.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class WorkerEntity {
-    
-    private String name;
-    private CompanyEntity company;
+public class CompanyId {
+    private String companyName;
+    private String companyLicenceNumber;
 }
