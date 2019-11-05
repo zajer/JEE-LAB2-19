@@ -24,7 +24,7 @@ public class ServletFromScratch extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Gson gson = new Gson();
-        //super.doGet(req, resp); //To change body of generated methods, choose Tools | Templates.
+        
         var data2return = prepExampleData();
         resp.getWriter().write(gson.toJson(data2return));
         
