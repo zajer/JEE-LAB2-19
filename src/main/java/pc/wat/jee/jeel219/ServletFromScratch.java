@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,18 +18,28 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.var;
 import pc.wat.jee.jeel219.model.CompanyEntity;
 import pc.wat.jee.jeel219.model.WorkerEntity;
+import pc.wat.jee.jeel219.model.WorkerEntityManager;
 
 
 @WebServlet("/SFS")
 public class ServletFromScratch extends HttpServlet {
 
+    @Inject
+    private WorkerEntityManager workersProvider;
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Gson gson = new Gson();
         
-        var data2return = prepExampleData();
+        //var data2return = prepExampleData();
+        var data2return = getDataFromDB();
         resp.setCharacterEncoding("UTF-16");
         resp.getWriter().write(gson.toJson(data2return));
+        
+    }
+    
+    private List<WorkerEntity> getDataFromDB(){
+        return workersProvider.getAllWorkers();
         
     }
     
