@@ -19,7 +19,7 @@ import javax.persistence.criteria.Root;
 public class WorkerEntityManager {
     final private String PU = "pc.wat.jee_JEEL219_war_1.0-SNAPSHOTPU";
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory(PU);
-    private EntityManager em = Persistence.createEntityManagerFactory(PU).createEntityManager();
+    //private EntityManager em = Persistence.createEntityManagerFactory(PU).createEntityManager();
     
     public List<WorkerEntity> getAllWorkers(){
         List<WorkerEntity> result = new ArrayList<>();
@@ -28,18 +28,18 @@ public class WorkerEntityManager {
         Root<WorkerEntity> rootOfQuery = cq.from(WorkerEntity.class);
         
         cq.select(rootOfQuery);
-        //EntityManager em = emf.createEntityManager();
+        EntityManager em = emf.createEntityManager();
         //em.create ("SELECT w FROM WORKERS").getResultList();
         result.addAll( em.createQuery(cq).getResultList());
-        //em.close();
+        em.close();
         return result;
     }
     
     public void saveWorker(WorkerEntity toSave){
-        //EntityManager em = emf.createEntityManager();
+        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(toSave);
         em.getTransaction().commit();
-        //em.close();
+        em.close();
     }
 }
