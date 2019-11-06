@@ -17,7 +17,7 @@ function getData(){
       $.each(data, function(key, value){
          var row = $("<tr>").appendTo("#content"); 
          $("<th>").append(value.name).appendTo(row);
-         $("<th>").append(value.company.id.companyName).appendTo(row);
+         $("<th>").append(value.company.name).appendTo(row);
       });
       
     });

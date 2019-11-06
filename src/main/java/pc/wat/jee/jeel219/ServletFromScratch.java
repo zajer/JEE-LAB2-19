@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import lombok.var;
 import pc.wat.jee.jeel219.model.CompanyEntity;
-import pc.wat.jee.jeel219.model.CompanyId;
 import pc.wat.jee.jeel219.model.WorkerEntity;
 
 
@@ -28,6 +27,7 @@ public class ServletFromScratch extends HttpServlet {
         Gson gson = new Gson();
         
         var data2return = prepExampleData();
+        resp.setCharacterEncoding("UTF-16");
         resp.getWriter().write(gson.toJson(data2return));
         
     }
@@ -35,10 +35,8 @@ public class ServletFromScratch extends HttpServlet {
     
     private List<WorkerEntity> prepExampleData(){
         List<WorkerEntity> result = new ArrayList<>();
-        CompanyId id1 = new CompanyId("WAT", "WAT nie potrzebuje licencji");
-        CompanyEntity comp1 = new CompanyEntity(id1, null, 777);
-        CompanyId id2 = new CompanyId("Marvel", "ABC123");
-        CompanyEntity comp2 = new CompanyEntity(id2, null, 777);
+        CompanyEntity comp1 = new CompanyEntity("WAT", null, 777);
+        CompanyEntity comp2 = new CompanyEntity("Marvel", null, 777);
         
         result.add(new WorkerEntity("Jan Kowalski", comp1));
         result.add(new WorkerEntity("Joanna Kowalska", comp1));
