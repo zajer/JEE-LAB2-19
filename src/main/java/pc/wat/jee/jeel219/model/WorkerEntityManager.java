@@ -31,7 +31,7 @@ public class WorkerEntityManager {
         //EntityManager em = emf.createEntityManager();
         //em.create ("SELECT w FROM WORKERS").getResultList();
         result.addAll( em.createQuery(cq).getResultList());
-        em.close();
+        //em.close();
         return result;
     }
     
@@ -40,6 +40,6 @@ public class WorkerEntityManager {
         em.getTransaction().begin();
         em.persist(toSave);
         em.getTransaction().commit();
-        em.close();
+        //em.close();
     }
 }
