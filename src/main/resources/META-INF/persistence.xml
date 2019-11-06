@@ -9,6 +9,7 @@
       <property name="hibernate.connection.username" value="pc"/>
       <property name="hibernate.connection.password" value="pc"/>
       <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>
